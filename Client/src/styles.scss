@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+
+$royal-blue: #0e2e8f;
+$white: #ffffff;
+
+$label-color: $white;
+
+$primary: $royal-blue;
+
+
+.canvas-style{
+    border-style: solid;
+    position: relative;
+    border-radius: 6px;
+}
+body{
+    background-image: url(./Pub/SVG/1x/Asset4.png);
+    background-repeat: repeat;
+ 
+    
+    
+}
+#sidebar-overflow{
+    overflow-y: scroll !important;
+    position: fixed;
+}
+.card-landscape{
+    width: 17em;
+    height: 25em;
+    background-color: grey;
+    z-index: auto;
+    display: block;
+    position: fixed;
+    top: 26%;
+    left: 24%;   
+}
+.card-landscape{
+    width: 17em;
+    height: 25em;
+    background-color: grey;
+    z-index: auto;
+    display: block;
+    position: fixed;
+    top: 26%;
+    left: 24%; 
+    padding: 5px;
+    border-radius: 5px;  
+}
+
+
+
+@import "../node_modules/bulma/bulma.sass";
