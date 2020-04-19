@@ -12,7 +12,7 @@ import Carddock from './components/Carddock';
 function App() {
   return (
     <div>
-      <div className='navbar is-primary is-fixed-top'>
+      <div className='navbar is-primary'>
         <p className='navbar-item has-text-white'>Building Game Manager</p>
         <div className='buttons navbar-item navbar-end '>
           <button className='button is-warning has-text-white'>Signup</button>

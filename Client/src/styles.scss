@@ -17,15 +17,14 @@ $primary: $royal-blue;
 body{
     background-image: url(./Pub/SVG/1x/Asset4.png);
     background-repeat: repeat;
- 
-    
-    
+    height: 100vh;
 }
 #sidebar-overflow{
     overflow-y: scroll !important;
     position: fixed;
 }
-.card-landscape{
+
+.card-portrait{
     width: 17em;
     height: 25em;
     background-color: grey;
@@ -33,11 +32,13 @@ body{
     display: block;
     position: fixed;
     top: 26%;
-    left: 24%;   
+    left: 24%;
+    padding: 5px;
+    border-radius: 5px;     
 }
 .card-landscape{
-    width: 17em;
-    height: 25em;
+    width: 25em;
+    height: 17em;
     background-color: grey;
     z-index: auto;
     display: block;
@@ -47,6 +48,7 @@ body{
     padding: 5px;
     border-radius: 5px;  
 }
+
 
 
 

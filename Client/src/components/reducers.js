@@ -28,12 +28,15 @@ export function formReducer(state, action) {
         case "PIC_CHANGE":
             newForm.cardPic = action.data;
             return newForm;
-
+        case "ORIAN_CHANGE":
+            newForm.oriantation = action.data;
+            return newForm;
         default:
             return state;
 
     }
 }
+
 export function canvasReducer(state, action) {
     let newCanvas = { ...state };
     switch (action.type) {
