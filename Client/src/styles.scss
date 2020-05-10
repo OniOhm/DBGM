@@ -19,37 +19,104 @@ body{
     background-repeat: repeat;
     height: 100vh;
 }
+#descript-Box{
+   
+    height: 100%;
+    border-style: none;
+    width: 100%;
+    resize: none;
+    border-radius: 5px; 
+    margin: 5px;
+}
+#descript-Box:focus{
+    border-style: none;
+}
 #sidebar-overflow{
     overflow-y: scroll !important;
     position: fixed;
 }
 
 .card-portrait{
-    width: 17em;
-    height: 25em;
-    background-color: grey;
+    width: 18em;
+    height: 26em;
+  
     z-index: auto;
-    display: block;
+    display: grid;
     position: fixed;
     top: 26%;
-    left: 24%;
-    padding: 5px;
-    border-radius: 5px;     
+    left: 34%;
+    padding: 15px;
+    border-radius: 5px;   
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 7% 40% 10% 35%;
+    row-gap: 10px;
+   
+   
 }
 .card-landscape{
-    width: 25em;
-    height: 17em;
-    background-color: grey;
+    width: 26em;
+    height: 18em;
+    
     z-index: auto;
-    display: block;
+    display: grid;
     position: fixed;
     top: 26%;
-    left: 24%; 
-    padding: 5px;
-    border-radius: 5px;  
+    font-size: medium;
+    left: 32%; 
+    padding: 15px;
+    border-radius: 5px; 
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 7% 53% 10% 28%;
+    
+    row-gap: 5px;
 }
+.card-top{
+    grid-row: 1;
+    grid-column: span 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px; 
+}
+.card-image-container{
+    display: flex;
+    grid-row: 2;
+    grid-column: span 4;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border-style: solid; 
+    background-color: #0e2e8f;
+}
+
+.card-img{
+    display: flex;
+    max-height: 100%;
+    max-width: inherit;
+    object-fit: contain;
+
+}
+.card-type{
+    display: flex;
+    grid-row: 3;
+    grid-column: span 4;
+    align-items: center;
+    border-radius: 5px; 
+}
+.card-description{
+    display: flex;
+    grid-row: 4;
+    grid-column: span 4;
+    align-items: center;
+    border-radius: 5px; 
+}
+.margin-handle{
+    margin: 5px;
+}
+
 
 
 
 
 @import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/@simonwep/pickr/dist/themes/classic.min.css";

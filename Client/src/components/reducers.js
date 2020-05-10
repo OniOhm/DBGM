@@ -1,4 +1,5 @@
 
+
 export function formReducer(state, action) {
     // Create a copy of the form state object and use a switch statement to make changes to the new form
     let newForm = { ...state };
@@ -16,7 +17,12 @@ export function formReducer(state, action) {
             return newForm;
 
         case "DESCRIPT_CHANGE":
-            newForm.description = action.data;
+            // get rid of newline condition
+            if(action.key == 13){
+                newForm.description = action.data+'\n';
+            }else{
+                newForm.description = action.data;
+            }
             return newForm;
         case "COST_CHANGE":
             newForm.cost = action.data;
@@ -31,43 +37,48 @@ export function formReducer(state, action) {
         case "ORIAN_CHANGE":
             newForm.oriantation = action.data;
             return newForm;
+        case "COLOR_CHANGE":
+            if(action.component == "card"){
+                newForm.backgroundColor = action.data;
+                return newForm;
+            }else if(action.component == 'box'){
+                newForm.boxColor = action.data;
+                return newForm; 
+            }else if(action.component == 'text'){
+                newForm.textColor = action.data;
+                return newForm;
+            }else if(action.component == 'border'){
+                newForm.borderColor = action.data;
+                return newForm;
+            }
+            return newForm;
+        case "RESET_DESIGN":
+            return state;
+        case "DISPLAY_CARD":
+            newForm = action.data;
+            return newForm;
         default:
             return state;
-
     }
 }
 
-export function canvasReducer(state, action) {
-    let newCanvas = { ...state };
-    switch (action.type) {
-        case "TO_PORTRAIT":
-            newCanvas.width = 275;
-            newCanvas.height = 375;
-            newCanvas.paddingWidth = 5;
-            newCanvas.paddingHieght = 6;
-
-            return newCanvas;
-        case "TO_LANDSCAPE":
-            newCanvas.height = 275;
-            newCanvas.width = 400;
-            newCanvas.paddingWidth = 5;
-            newCanvas.paddingHieght = 6;
-            return newCanvas;
-
-        case "COMMIT_COLOR":
-            console.log(action);
-            // action type recieves color and focus attributes from the action object
-            if (action.focus == "CARD") {
-                newCanvas.canvasColor = action.color;
-                return newCanvas;
-            } else if (action.focus == "TEXTBOX") {
-                newCanvas.canvasTextBox = action.color;
-                return newCanvas;
-            } else if (action.focus == "TEXT") {
-                newCanvas.canvasTextColor = action.color;
-                return newCanvas;
-            }
+export function dockReducer(state,action){
+    let newDockState = {...state};
+    switch(action.type){
+        case "TOGGLE_EMBLEM":
+            // Toggles the emblem subbox
+        case "ADD_TO_DECKDOCK":
+        //  the reducer's state variable can be passed from the carddock component as an action addon.
+            newDockState.createdDeck.push(action.data);
+            return newDockState;
+        case "TOGGLE_FORM_VIEW":
+        // changes the form tab view
+            action.data ? newDockState.sideBoxView = false: newDockState.sideBoxView = true;
+            return newDockState;
+        case "COLOR_COMP_CHANGE":
+            newDockState.colorComp = action.data;
+            return newDockState;
         default:
-            return newCanvas;
+            return state;
     }
 }
