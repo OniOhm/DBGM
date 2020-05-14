@@ -55,8 +55,12 @@ export function formReducer(state, action) {
         case "RESET_DESIGN":
             return state;
         case "DISPLAY_CARD":
+            console.log(action.data);
             newForm = action.data;
             return newForm;
+        case "EMBLEM_CHANGE":
+            newForm.cardEmblem = action.data;
+            return newForm
         default:
             return state;
     }
@@ -65,8 +69,6 @@ export function formReducer(state, action) {
 export function dockReducer(state,action){
     let newDockState = {...state};
     switch(action.type){
-        case "TOGGLE_EMBLEM":
-            // Toggles the emblem subbox
         case "ADD_TO_DECKDOCK":
         //  the reducer's state variable can be passed from the carddock component as an action addon.
             newDockState.createdDeck.push(action.data);

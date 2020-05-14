@@ -9,7 +9,7 @@ function DeckDock(props){
    
     
     const deck = props.createdDeck.map((element)=>
-        <div key={element.name} style={{backgroundColor: element.backgroundColor}} className ='button level is-link is-small is-marginless'>
+        <div key={element.name} style={{backgroundColor: element.backgroundColor}} onClick={(e)=>{props.displayCard(element)}} className ='button level is-link is-small is-marginless'>
                 <p className='level-start'>{element.name}</p>
                 <p className='level-end'>{element.type}</p>
         </div>
@@ -29,6 +29,9 @@ function DeckDock(props){
             </div>
             <div className='tile is-child is-vertical'>
             {deck}
+            </div>
+            <div className='level'>
+                <button className=' button level-item is-link'>Details</button>
             </div>
         </div>
     );

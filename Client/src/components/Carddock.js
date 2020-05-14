@@ -1,7 +1,7 @@
 import React, { useRef, useReducer, useState, useEffect } from 'react';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSync, faFire,faCertificate,faEye,faHatWizard, faLeaf, faCoins, faWind, faTint } from '@fortawesome/free-solid-svg-icons';
+import {faSync as skin, faFire,faCertificate,faEye,faHatWizard, faLeaf, faCoins, faWind, faTint } from '@fortawesome/free-solid-svg-icons';
 import { CompactPicker } from 'react-color';
 
 import { formReducer, dockReducer } from './reducers';
@@ -11,7 +11,7 @@ import DeckDock from './subComponents/DeckDock';
 
 function Carddock() {
 
- 
+
   
  
     const cardState = {
@@ -25,7 +25,7 @@ function Carddock() {
         backgroundColor : 'grey',
         boxColor : 'white',
         textColor : 'black',
-        cardEmblem : 'fa'
+        cardEmblem : skin
     }
     const dockInitState ={
         EmblemBox: false,
@@ -48,7 +48,7 @@ function Carddock() {
                 // passing length of deckDock array
                 numOfCards = {dockState.createdDeck.length}
                 createdDeck = {dockState.createdDeck}
-                // displayCard = {(value)=>{displayHandle(value)}}
+                displayCard = {(value)=>{dispatch({type:'DISPLAY_CARD',data:value})}}
                 >
                 </DeckDock>
            </div>
@@ -65,6 +65,7 @@ function Carddock() {
                  textColor={state.textColor}
                  boxColor={state.boxColor}
                  borderColor={state.borderColor}
+                 cardEmblem={state.cardEmblem}
                  ></NewCard>
             </div>
             <div className='tile is-parent box is-4 is-default'>
@@ -122,14 +123,14 @@ function Carddock() {
             <label className='label is-6 has-text-black'>Card Emblem</label>
              <div className='level'>
                  <div className='level-start'>
-                    <button className='button is-default'><FontAwesomeIcon icon={faFire}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faLeaf}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faWind}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faTint}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faCertificate}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faEye}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faCoins}></FontAwesomeIcon></button>
-                    <button className='button is-default'><FontAwesomeIcon icon={faHatWizard}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'FIRE'})}}><FontAwesomeIcon icon={faFire}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'EARTH'})}}><FontAwesomeIcon icon={faLeaf}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'WIND'})}}><FontAwesomeIcon icon={faWind}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'WATER'})}}><FontAwesomeIcon icon={faTint}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'ATTACK'})}}><FontAwesomeIcon icon={faCertificate}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'SNEAK'})}}><FontAwesomeIcon icon={faEye}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'MONEY'})}}><FontAwesomeIcon icon={faCoins}></FontAwesomeIcon></button>
+                    <button className='button is-default' onClick={(e)=>{dispatch({type:'EMBLEM_CHANGE',data:'MAGIC'})}}><FontAwesomeIcon icon={faHatWizard}></FontAwesomeIcon></button>
                  </div>
                  <div className='level-end'>
                      <button className='button is-info'>Set</button>
@@ -154,7 +155,7 @@ function Carddock() {
             <div className='level'></div>
             <div className='level'>
                 <button className='button is-link level-item level-end' onClick={(e)=>{dockDispatch({type:"ADD_TO_DECKDOCK",data: state})}}>Save</button>
-                <button className='button level-item is-warning'  onClick={(e)=>{dispatch({type:'RESET_DESIGN'})}}><FontAwesomeIcon icon={faSync}/></button>
+                <button className='button level-item is-warning'  onClick={(e)=>{dispatch({type:'RESET_DESIGN'})}}><FontAwesomeIcon icon={skin}/></button>
             </div>
             </div>
    
