@@ -1,12 +1,30 @@
 
+import def from '../Pub/SVG/def.png';
+import attack from '../assets/1x/Attack.png';
 
 export function formReducer(state, action) {
+    const cardDefault= {
+        description : "New Effect",
+        name : "New Card",
+        cost : "new Cost",
+        type : "New Type",
+        lore : "New Lore",
+        oriantation : "card-portrait",
+        cardPic : def,
+        backgroundColor : 'grey',
+        boxColor : 'white',
+        textColor : 'black',
+        cardEmblem : attack,
+        
+    };
     // Create a copy of the form state object and use a switch statement to make changes to the new form
     let newForm = { ...state };
     switch (action.type) {
         case "NAME_CHANGE":
             newForm.name = action.data;
+            console.log("NAME_CHANGE EVENT CALLED")
             return newForm;
+            
             break;
         case "NOTE_CHANGE":
             newForm.authorsNote = action.data;
@@ -17,12 +35,7 @@ export function formReducer(state, action) {
             return newForm;
 
         case "DESCRIPT_CHANGE":
-            // get rid of newline condition
-            if(action.key == 13){
-                newForm.description = action.data+'\n';
-            }else{
-                newForm.description = action.data;
-            }
+            newForm.description = action.data;
             return newForm;
         case "COST_CHANGE":
             newForm.cost = action.data;
@@ -34,9 +47,24 @@ export function formReducer(state, action) {
         case "PIC_CHANGE":
             newForm.cardPic = action.data;
             return newForm;
-        case "ORIAN_CHANGE":
-            newForm.oriantation = action.data;
-            return newForm;
+        case "CARDTYPE_CHANGE":
+            if(action.data =='card-portrait'){
+                newForm.cardSwitch = true;
+                newForm.oriantation = 'card-portrait'; 
+                return newForm; 
+            }else if(action.data == 'card-landscape'){
+                newForm.cardSwitch = true;
+                newForm.oriantation = 'card-landscape';
+                return newForm;
+            }else if(action.data == 'card-info-portrait'){
+                newForm.cardSwitch = false;
+                newForm.oriantation = 'card-portrait';
+                return newForm;
+            }else if(action.data == 'card-info-landscape'){
+                newForm.cardSwitch = false;
+                newForm.oriantation = 'card-landscape';
+                return newForm;
+            }
         case "COLOR_CHANGE":
             if(action.component == "card"){
                 newForm.backgroundColor = action.data;
@@ -53,14 +81,15 @@ export function formReducer(state, action) {
             }
             return newForm;
         case "RESET_DESIGN":
-            return state;
+            newForm = cardDefault;
+            return newForm;
         case "DISPLAY_CARD":
             console.log(action.data);
             newForm = action.data;
             return newForm;
         case "EMBLEM_CHANGE":
             newForm.cardEmblem = action.data;
-            return newForm
+            return newForm;
         default:
             return state;
     }

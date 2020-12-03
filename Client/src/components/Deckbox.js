@@ -19,7 +19,7 @@ function Deckbox() {
 
                         </div>
                         <div className='level'>
-                            <div className='level-item buttons'>
+                            <div className='level buttons'>
                                 <button className=' button is-link'>Create New Deck <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                             </div>
                         </div>

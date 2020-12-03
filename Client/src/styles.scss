@@ -9,11 +9,6 @@ $label-color: $white;
 $primary: $royal-blue;
 
 
-.canvas-style{
-    border-style: solid;
-    position: relative;
-    border-radius: 6px;
-}
 body{
     background-image: url(./Pub/SVG/1x/Asset4.png);
     background-repeat: repeat;
@@ -27,6 +22,7 @@ body{
     resize: none;
     border-radius: 5px; 
     margin: 5px;
+    font-size: 18pt;
 }
 #descript-Box:focus{
     border-style: none;
@@ -35,16 +31,19 @@ body{
     overflow-y: scroll !important;
     position: fixed;
 }
+.sidebar{
+    height: 48em;
+}
 
 .card-portrait{
-    width: 18em;
-    height: 26em;
+    width: 36em;
+    height: 52em;
   
     z-index: auto;
     display: grid;
     position: fixed;
-    top: 26%;
-    left: 34%;
+    top: 7%;
+    left: 60%;
     padding: 15px;
     border-radius: 5px;   
     grid-template-columns: 25% 25% 25% 25%;
@@ -60,9 +59,9 @@ body{
     z-index: auto;
     display: grid;
     position: fixed;
-    top: 26%;
+    top: 28%;
     font-size: medium;
-    left: 32%; 
+    left: 60%; 
     padding: 15px;
     border-radius: 5px; 
     grid-template-columns: 25% 25% 25% 25%;
@@ -70,6 +69,7 @@ body{
     
     row-gap: 5px;
 }
+// basic card layout
 .card-top{
     grid-row: 1;
     grid-column: span 4;
@@ -77,6 +77,8 @@ body{
     justify-content: space-between;
     align-items: center;
     border-radius: 5px; 
+    font-family: 'Averia Serif Libre','serif';
+    font-size: 18pt;
 }
 .card-image-container{
     display: flex;
@@ -86,13 +88,13 @@ body{
     align-items: center;
     border-radius: 5px;
     border-style: solid;
+    height: 100%;
 }
 
 .card-img{
     display: flex;
-    max-height: 100%;
-    max-width: inherit;
-    object-fit: contain;
+    width: fit-content;
+    height: 100%;
 
 }
 .card-type{
@@ -101,6 +103,7 @@ body{
     grid-column: span 4;
     align-items: center;
     border-radius: 5px; 
+    font-size:18pt;
 }
 .card-description{
     display: flex;
@@ -108,11 +111,33 @@ body{
     grid-column: span 4;
     align-items: center;
     border-radius: 5px; 
+    font-size: 19;
 }
+// textCard layout
+.card-text-description{
+    display: flex;
+    grid-row: span 3;
+    grid-column:  span 4;
+    align-items: center;
+    border-radius: 5px; 
+}
+
 .margin-handle{
     margin: 5px;
 }
 
+.deckentry{
+    width: 18em;
+    height: 26em;
+  
+    z-index: 10;
+    display: grid;
+    position: fixed;
+    background-color: green($color: #000000);
+    top: 0;
+    font-size: medium;
+    left: 32%; 
+}
 
 
 

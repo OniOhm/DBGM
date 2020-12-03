@@ -2,9 +2,9 @@ import React from 'react';
 
 import './App.css';
 
-import Login from './components/loginin';
-import Deckbox from './components/Deckbox';
-import Carddock from './components/Carddock';
+
+
+import Carddock from './components/Carddock/Carddock';
 
 // components
 
